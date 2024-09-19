@@ -1,0 +1,18 @@
+import numpy as np
+import scipy.signal as sig
+import matplotlib.pyplot as plt
+heart_rate=np.random.rand(0,1440)
+def low_pass_filter():
+    smoothed_data=sig.lowpass(heart_rate)
+    plt.plot(smoothed_data,color="k")
+def avg_hr():
+    for i in range(60):
+        avg=np.avg(heart_rate)
+        plt.plot(avg,color="k")
+def check_hr():
+    if(hr>100):
+        plt.plot(heart_rate,color="g")
+plt.xlabel("Original Noisy Heart Rate")
+plt.ylabel("The Smoothed Data")
+plt.title("Heart Rate of Patients")
+plt.show()
